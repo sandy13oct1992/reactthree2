@@ -1,23 +1,26 @@
 import logo from './logo.svg';
 import './App.css';
+// import CourseInput from './CourseInput';
+import Button from './Button';
+
 
 function App() {
+  // const [enteredValue, setEnteredValue] = useState('');
+  // const [isValid, setisValid] = useState(true);
+
+  // const AddUser = event => {
+  //     setEnteredValue(event.target.value);
+  // }
+  // if(enteredValue.trim().length===0)
+  //   {
+  //       setisValid(false);
+  //       return;
+  //   }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+    <div >
+      <Button/>
+      {/* <CourseInput onAddGoal = {AddUser}></CourseInput> */}
     </div>
   );
 }

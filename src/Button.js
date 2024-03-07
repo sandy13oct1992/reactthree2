@@ -7,18 +7,19 @@ const Button = () => {
   const handleInputChange = (event) => {
     const inputValue = event.target.value;
     setGoal(inputValue);
-    setIsButtonDisabled(!inputValue.trim()); // Disable the button if input is empty or contains only whitespaces
+    setIsButtonDisabled(!inputValue.trim());
   };
 
   const handleAddGoalClick = () => {
-    // Handle the logic for adding the goal
     if (goal.trim()) {
-      // Add your logic here for adding the goal
       console.log('Goal added:', goal);
-      // Clear the input field and disable the button again
       setGoal('');
       setIsButtonDisabled(true);
     }
+  };
+
+  const buttonStyle = {
+    backgroundColor: isButtonDisabled ? 'lightcoral' : 'red',
   };
 
   return (
@@ -31,7 +32,7 @@ const Button = () => {
       />
       <button
         onClick={handleAddGoalClick}
-        style={{ backgroundColor: isButtonDisabled ? 'lightcoral' : 'lightgreen' }}
+        style={buttonStyle}
         disabled={isButtonDisabled}
       >
         Add Goal

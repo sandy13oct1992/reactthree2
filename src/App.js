@@ -4,10 +4,11 @@ import './App.css';
 import CourseInput from './CourseInput';
 import Button from './Button';
 import ToDoList from './TodoList';
+import ECommerceSite from './E-CommerceSite';
 
 function App() {
-
-  const [inputList, setInputList] = useState("Buy a mango")
+  <ECommerceSite/>
+  const [inputList, setInputList] = useState("buy a mango");
  const [newItems, setNewItems] = useState([]);
 
   const itemEvents = (event) => {
@@ -34,9 +35,11 @@ function App() {
   return (
   <div>
     <h1>To Do List</h1>
+    
     <input type ="text" placeholder='Add items' 
     value={inputList}
     onChange={itemEvents}/>
+
     <button onClick={listOfItems}> + </button>
 
     <ol>

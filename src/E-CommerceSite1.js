@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 
-const EComerceSite = () => {
+const EComerceSite1 = () => {
+  const categories = ['Electronics', 'Food', 'Skincare'];
+
   const [category, setCategory] = useState('');
   const [productName, setProductName] = useState('');
   const [price, setPrice] = useState('');
   const [products, setProducts] = useState([]);
 
+  console.log("executing");
   const handleCategoryChange = (e) => {
     setCategory(e.target.value);
   };
@@ -26,7 +29,7 @@ const EComerceSite = () => {
       category,
       productName,
       price,
-      id: new Date().getTime(), // Assign a unique ID (you might want to use a more robust solution in a real application)
+      id: new Date().getTime(),
     };
 
     // Update the products state with the new product
@@ -67,9 +70,11 @@ const EComerceSite = () => {
           <label htmlFor="category">Category:</label>
           <select id="category" value={category} onChange={handleCategoryChange} required>
             <option value="">Select Category</option>
-            <option value="electronics">Electronics</option>
-            <option value="clothing">Clothing</option>
-            <option value="books">Books</option>
+            {categories.map((category) => (
+              <option key={category} value={category}>
+                {category}
+              </option>
+            ))}
           </select>
         </div>
         <div>
@@ -96,19 +101,24 @@ const EComerceSite = () => {
       </form>
 
       <h2>Products</h2>
-      <ul>
-        {products.map((product) => (
-          
-          <li key={product.id}>
-            {product.category} - {product.productName} - ${product.price}
-            <button onClick={() => handleEdit(product.id)}>Edit</button>
-            <button onClick={() => handleDelete(product.id)}>Delete</button>
-          </li>
-          
-        ))}
-      </ul>
+      {categories.map((category1) => (
+        <div key={category1}>
+          <h3>{category1}</h3>
+          <ul>
+            {products
+              .filter((product) => product.category === category1)
+              .map((product) => (
+                <li key={product.id}>
+                  {product.productName} - ${product.price}
+                  <button onClick={() => handleEdit(product.id)}>Edit</button>
+                  <button onClick={() => handleDelete(product.id)}>Delete</button>
+                </li>
+              ))}
+          </ul>
+        </div>
+      ))}
     </div>
   );
 };
 
-export default EComerceSite;
+export default EComerceSite1;

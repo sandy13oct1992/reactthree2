@@ -4,20 +4,25 @@ import './App.css';
 import CourseInput from './CourseInput';
 import Button from './Button';
 import ToDoList from './TodoList';
-import ECommerceSite from './E-CommerceSite';
+import EComerceSite1 from './E-CommerceSite1';
+
 
 function App() {
-  <ECommerceSite/>
-  const [inputList, setInputList] = useState("buy a mango");
+
+  const [inputList, setInputList] = useState("id");
  const [newItems, setNewItems] = useState([]);
+//  const [electronics, setElectronics] = useState([]);
+//  const [food, setFood] = useState([]);
 
   const itemEvents = (event) => {
     setInputList(event.target.value);
   };
 
  const listOfItems =() => {
+
  setNewItems((oldItems) =>{
   return [...oldItems, inputList];
+
   
  });
  setInputList("");
@@ -33,7 +38,9 @@ function App() {
  })
 }
   return (
+  
   <div>
+    <EComerceSite1/>
     <h1>To Do List</h1>
     
     <input type ="text" placeholder='Add items' 
